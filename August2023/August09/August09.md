@@ -209,4 +209,51 @@ Rule of thumb: $f_t/100$是开关电容放大器能达到的最大速度
 
 仿真testbench搭建
 
+对DC来说，放大器是无反馈通路的（电容是断路的），任何放大器自身的offset都会导致输出饱和，因此需要一个大电阻做反馈
+
 ![Untitled](IMAGE/Untitled%2011.png)
+
+![Untitled](IMAGE/Untitled%2012.png)
+
+如果负载变轻，即变为300fF，可以看到明显下冲
+
+![Untitled](IMAGE/Untitled%2013.png)
+
+电容的前馈通路
+
+![Untitled](IMAGE/Untitled%2014.png)
+
+$$
+\frac{V_{odstep}}{V_{idstep}}=\frac{C_S}{C_S+C_{in}+\frac{C_fC_L}{C_f+C_L}}\cdot \frac{C_f}{C_f+C_L}
+$$
+
+使用两种等效的建模方式对前馈通路造成的下降做分析
+
+- 利用电容分压网络计算e指数settle的起点位置
+- 使用拉普拉斯反变换对带有前馈通路零点的传递函数进行分析
+
+$$
+A(s)=-\frac{C_S}{C_f}\frac{1-\frac{s}{z}}{1-\frac{s}{p}}\cdot\frac{T_0}{1+T_0},z=\frac{G_m}{C_F},p=-\frac{\beta G_m}{C_L+(1-\beta)C_f}
+$$
+
+得到新结果
+
+$$
+V_{od}(t)=L^{-1}\{A(s)\cdot\frac{V_{step}}{s}\}=-\frac{C_s}{C_f}\cdot V_{idstep}\cdot\frac{T_0}{1+T_0}\cdot(1-[1-\frac{p}{z}]e^{-t/\tau}))\\1-\frac{p}{z}=\frac{C_L+(1-\beta)C_f+\beta C_f}{C_L+(1-\beta)C_f}=\frac{C_L+C_f}{C_L+(1-\beta)C_f}=\frac{1}{1-\beta\frac{C_f}{C_f+C_L}}
+$$
+
+带入之前的例子
+
+$$
+\frac{1}{1-0.48\frac{500fF}{500fF+300fF}}=1.4\to V_{od}(t=0)\approx10mV(1-1.4)=-4mV
+$$
+
+与仿真吻合较好
+
+矫正后的settling time
+
+$$
+t_s=--\frac{1}{\omega_C}\cdot ln(\epsilon_{d,tot}[1-\beta\cdot \frac{C_f}{C_f+C_L}])
+$$
+
+注意新的项是＜1的，因此settle所需要的时间会延长。不过一般情况下（β不大，两个电容容值相近）其实并不显著。
