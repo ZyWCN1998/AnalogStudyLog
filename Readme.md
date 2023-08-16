@@ -11,6 +11,7 @@
 ### 文件列表
 
 ```bash
+
 <AnalogStudyLog> (root)
 |
 +- July2023 (#dir for every mounth's dotes)
@@ -18,12 +19,6 @@
 |  + July* (#dir for everyday notes)
 |				| IMAGE (#Image file for markdown)
 |				| July*.md (#everday study note or debug log)
-|  ...
-+- PDF(#dir for goodnotes)
-|  |
-|  + **Electronic II.pdf**
-|  + **Design of Analog CMOS Integrated Circuits ntoes.pdf
-|  + Signal system Alan Oppenheim.pdf**
 |  ...
 +- Readme.md (#this file)
 ```
@@ -51,25 +46,25 @@
     - [x]  6. miller approx (7.28)
     - [x]  7. noise (7.25)
     - [x]  8. backgate and common gate (7.31)
-    - [ ]  9. common drain
-    - [ ]  10. diff pair
-    - [ ]  11. current mirror and offset
-    - [ ]  12. OTA and CS circuit
-    - [ ]  13. process variation and feedback intro
-    - [ ]  14. feedback and stability analysis
-    - [ ]  15. two-stage ota
-    - [ ]  16. frequency compensation and noise
-    - [ ]  17. OTA design consideration
-    - [ ]  18. step response
-    - [ ]  19. slew
-    - [ ]  20. blackman, cmfb, ota variation
-    - [ ]  21. output stage
-    - [ ]  22. bias
-    - [ ]  23. bandgap reference
-    - [ ]  24. technology scaling
-    - [ ]  25. summary
+    - [x]  9. common drain（8.2）
+    - [x]  10. diff pair（8.3）
+    - [x]  11. current mirror and offset（8.3）
+    - [x]  12. OTA and CS circuit（8.5）
+    - [x]  13. process variation and feedback intro（8.6）
+    - [x]  14. feedback and stability analysis（8.7）
+    - [x]  15. two-stage ota（8.8）
+    - [x]  16. frequency compensation and noise（8.8）
+    - [x]  17. OTA design consideration（8.9）
+    - [x]  18. step response（8.9）
+    - [x]  19. slew（8.10）
+    - [x]  20. blackman, cmfb, ota variation（8.11）
+    - [x]  21. output stage（8.12）
+    - [x]  22. bias（8.15）
+    - [x]  23. bandgap reference（8.16）
+    - [x]  24. technology scaling（8.16）
+    - [x]  25. summary（8.16）
 
-这里👇列出的是之前上课手写的笔记（还未来得及整理），github无法上传超过50MB文件
+这里👇列出的是之前上课手写的笔记（还未来得及整理），Github无法上传大于50M文件
 
 - **Razavi: Electronic II**
     - [(391) Razavi Electronics 1, Lec 1, Intro., Charge Carriers, Doping - YouTube](https://www.youtube.com/watch?v=yQDfVJzEymI&list=PLyYrySVqmyVPzvVlPW-TTzHhNWg1J_0LU)
